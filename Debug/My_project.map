@@ -1,0 +1,771 @@
+******************************************************************************
+                  TI ARM Linker Unix v18.12.1                  
+******************************************************************************
+>> Linked Mon Apr  1 02:49:22 2019
+
+OUTPUT FILE NAME:   <My_project.out>
+ENTRY POINT SYMBOL: "_c_int00_noargs"  address: 00008185
+
+
+MEMORY CONFIGURATION
+
+         name            origin    length      used     unused   attr    fill
+----------------------  --------  ---------  --------  --------  ----  --------
+  FLASH                 00000000   00100000  0000852e  000f7ad2  R  X
+  SRAM                  20000000   00040000  0000ed80  00031280  RW X
+
+
+SEGMENT ALLOCATION MAP
+
+run origin  load origin   length   init length attrs members
+----------  ----------- ---------- ----------- ----- -------
+00000000    00000000    00008530   00008530    r-x
+  00000000    00000000    00000208   00000208    r-- .intvecs
+  00000208    00000208    00008062   00008062    r-x .text
+  0000826c    0000826c    0000027c   0000027c    r-- .const
+  000084e8    000084e8    00000048   00000048    r-- .cinit
+20000000    20000000    0000ed84   00000000    rw-
+  20000000    20000000    0000eb14   00000000    rw- .bss
+  2000eb18    2000eb18    00000200   00000000    rw- .stack
+  2000ed18    2000ed18    0000006c   00000000    rw- .data
+
+
+SECTION ALLOCATION MAP
+
+ output                                  attributes/
+section   page    origin      length       input sections
+--------  ----  ----------  ----------   ----------------
+.intvecs   0    00000000    00000208     
+                  00000000    00000208     tm4c129lnczad_startup_ccs.obj (.intvecs)
+
+.text      0    00000208    00008062     
+                  00000208    00002e74     SEGGER_SYSVIEW.obj (.text)
+                  0000307c    00001ad4     tasks.obj (.text)
+                  00004b50    00000f20     queue.obj (.text)
+                  00005a70    00000e3c     SEGGER_RTT.obj (.text)
+                  000068ac    00000648     timers.obj (.text)
+                  00006ef4    000003d0     SEGGER_SYSVIEW_FreeRTOS.obj (.text)
+                  000072c4    000002bc     heap_4.obj (.text)
+                  00007580    000002b0     device_config.obj (.text)
+                  00007830    00000200     driverlib.lib : sysctl.obj (.text:SysCtlClockFreqSet)
+                  00007a30    00000184     main.obj (.text)
+                  00007bb4    00000148     port.obj (.text)
+                  00007cfc    0000012a     list.obj (.text)
+                  00007e26    00000002     --HOLE-- [fill = 0]
+                  00007e28    000000da     portasm.obj (.text)
+                  00007f02    0000009c     rtsv7M4_T_le_v4SPD16_eabi.lib : memcpy_t2.asm.obj (.text)
+                  00007f9e    0000007a                                   : memset_t2.asm.obj (.text)
+                  00008018    00000078     SEGGER_SYSVIEW_Config_FreeRTOS.obj (.text)
+                  00008090    00000068     rtsv7M4_T_le_v4SPD16_eabi.lib : copy_decompress_lzss.c.obj (.text:decompress:lzss:__TI_decompress_lzss)
+                  000080f8    00000048     driverlib.lib : sysctl.obj (.text:_SysCtlFrequencyGet)
+                  00008140    00000044     rtsv7M4_T_le_v4SPD16_eabi.lib : autoinit.c.obj (.text:__TI_auto_init_nobinit_nopinit:__TI_auto_init_nobinit_nopinit)
+                  00008184    00000034                                   : boot_cortex_m.c.obj (.text:_c_int00_noargs:_c_int00_noargs)
+                  000081b8    00000024                                   : memcmp.c.obj (.text:memcmp)
+                  000081dc    00000020     driverlib.lib : sysctl.obj (.text:_SysCtlMemTimingGet)
+                  000081fc    00000018     rtsv7M4_T_le_v4SPD16_eabi.lib : ll_mul_t2.asm.obj (.text)
+                  00008214    00000014                                   : strcpy.c.obj (.text:strcpy)
+                  00008228    00000014                                   : strlen.c.obj (.text:strlen)
+                  0000823c    0000000e                                   : copy_decompress_none.c.obj (.text:decompress:none:__TI_decompress_none)
+                  0000824a    0000000c                                   : copy_zero_init.c.obj (.text:decompress:ZI:__TI_zero_init)
+                  00008256    0000000c     tm4c129lnczad_startup_ccs.obj (.text)
+                  00008262    00000004     rtsv7M4_T_le_v4SPD16_eabi.lib : pre_init.c.obj (.text:_system_pre_init)
+                  00008266    00000004                                   : exit.c.obj (.text:abort:abort)
+
+.const     0    0000826c    0000027c     
+                  0000826c    000001b0     driverlib.lib : sysctl.obj (.const:g_pppui32XTALtoVCO)
+                  0000841c    0000006c                   : sysctl.obj (.const:g_pui32Xtals)
+                  00008488    00000030                   : sysctl.obj (.const:g_sXTALtoMEMTIM)
+                  000084b8    00000010     SEGGER_SYSVIEW.obj (.const:.string:_aV2C$1)
+                  000084c8    0000000a     SEGGER_SYSVIEW.obj (.const:.string:_abSync)
+                  000084d2    00000002     --HOLE-- [fill = 0]
+                  000084d4    00000008     SEGGER_SYSVIEW_FreeRTOS.obj (.const:SYSVIEW_X_OS_TraceAPI)
+                  000084dc    00000008     driverlib.lib : sysctl.obj (.const)
+                  000084e4    00000004     port.obj (.const)
+
+.cinit     0    000084e8    00000048     
+                  000084e8    00000020     (.cinit..data.load) [load image, compression = lzss]
+                  00008508    0000000c     (__TI_handler_table)
+                  00008514    00000004     --HOLE-- [fill = 0]
+                  00008518    00000008     (.cinit..bss.load) [load image, compression = zero_init]
+                  00008520    00000010     (__TI_cinit_table)
+
+.init_array 
+*          0    00000000    00000000     UNINITIALIZED
+
+.bss       0    20000000    0000eb14     UNINITIALIZED
+                  20000000    0000c350     heap_4.obj (.bss:ucHeap)
+                  2000c350    00002000     SEGGER_SYSVIEW.obj (.bss:_UpBuffer)
+                  2000e350    00000400     SEGGER_RTT.obj (.bss:_acUpBuffer)
+                  2000e750    000000e4     SEGGER_SYSVIEW.obj (.bss:_aPacket)
+                  2000e834    000000a8     (.common:_SEGGER_RTT)
+                  2000e8dc    000000a0     SEGGER_SYSVIEW_FreeRTOS.obj (.bss:_aTasks)
+                  2000e97c    00000064     tasks.obj (.bss:pxReadyTasksLists)
+                  2000e9e0    00000040     (.common:xQueueRegistry)
+                  2000ea20    00000028     SEGGER_SYSVIEW.obj (.bss:_SYSVIEW_Globals)
+                  2000ea48    00000014     timers.obj (.bss:xActiveTimerList1)
+                  2000ea5c    00000014     timers.obj (.bss:xActiveTimerList2)
+                  2000ea70    00000014     tasks.obj (.bss:xDelayedTaskList1)
+                  2000ea84    00000014     tasks.obj (.bss:xDelayedTaskList2)
+                  2000ea98    00000014     tasks.obj (.bss:xPendingReadyList)
+                  2000eaac    00000014     tasks.obj (.bss:xSuspendedTaskList)
+                  2000eac0    00000014     tasks.obj (.bss:xTasksWaitingTermination)
+                  2000ead4    00000010     SEGGER_RTT.obj (.bss:_acDownBuffer)
+                  2000eae4    00000008     SEGGER_SYSVIEW.obj (.bss:_DownBuffer)
+                  2000eaec    00000008     tasks.obj (.bss)
+                  2000eaf4    00000008     timers.obj (.bss)
+                  2000eafc    00000008     heap_4.obj (.bss:xStart)
+                  2000eb04    00000005     SEGGER_SYSVIEW.obj (.bss)
+                  2000eb09    00000001     SEGGER_RTT.obj (.bss)
+                  2000eb0a    00000002     --HOLE--
+                  2000eb0c    00000004     SEGGER_SYSVIEW_FreeRTOS.obj (.bss)
+                  2000eb10    00000004     (.common:setclockfreq)
+
+.data      0    2000ed18    0000006c     UNINITIALIZED
+                  2000ed18    00000034     tasks.obj (.data)
+                  2000ed4c    00000010     SEGGER_RTT.obj (.data:_aTerminalId)
+                  2000ed5c    00000010     heap_4.obj (.data)
+                  2000ed6c    0000000c     timers.obj (.data)
+                  2000ed78    00000008     main.obj (.data)
+                  2000ed80    00000004     port.obj (.data)
+
+.stack     0    2000eb18    00000200     UNINITIALIZED
+                  2000eb18    00000004     rtsv7M4_T_le_v4SPD16_eabi.lib : boot_cortex_m.c.obj (.stack)
+                  2000eb1c    000001fc     --HOLE--
+
+MODULE SUMMARY
+
+       Module                               code    ro data   rw data
+       ------                               ----    -------   -------
+    ./
+       tm4c129lnczad_startup_ccs.obj        12      520       0      
+    +--+------------------------------------+-------+---------+---------+
+       Total:                               12      520       0      
+                                                                     
+    ./src/
+       device_config.obj                    688     0         0      
+       main.obj                             388     0         12     
+    +--+------------------------------------+-------+---------+---------+
+       Total:                               1076    0         12     
+                                                                     
+    ./thirdparty/SEGGER/Config/
+       SEGGER_SYSVIEW_Config_FreeRTOS.obj   120     0         0      
+    +--+------------------------------------+-------+---------+---------+
+       Total:                               120     0         0      
+                                                                     
+    ./thirdparty/SEGGER/OS/
+       SEGGER_SYSVIEW_FreeRTOS.obj          976     8         164    
+    +--+------------------------------------+-------+---------+---------+
+       Total:                               976     8         164    
+                                                                     
+    ./thirdparty/SEGGER/SEGGER/
+       SEGGER_SYSVIEW.obj                   11892   26        8473   
+       SEGGER_RTT.obj                       3644    0         1225   
+    +--+------------------------------------+-------+---------+---------+
+       Total:                               15536   26        9698   
+                                                                     
+    ./thirdparty/freertos/org/Source/
+       tasks.obj                            6868    0         260    
+       queue.obj                            3872    0         64     
+       timers.obj                           1608    0         60     
+       list.obj                             298     0         0      
+    +--+------------------------------------+-------+---------+---------+
+       Total:                               12646   0         384    
+                                                                     
+    ./thirdparty/freertos/org/Source/portable/CCS/ARM_CM4F/
+       port.obj                             328     4         4      
+       portasm.obj                          218     0         0      
+    +--+------------------------------------+-------+---------+---------+
+       Total:                               546     4         4      
+                                                                     
+    ./thirdparty/freertos/org/Source/portable/MemMang/
+       heap_4.obj                           700     0         50024  
+    +--+------------------------------------+-------+---------+---------+
+       Total:                               700     0         50024  
+                                                                     
+    /home/vishal/ti/ccsv8/tools/compiler/ti-cgt-arm_18.12.1.LTS/lib/rtsv7M4_T_le_v4SPD16_eabi.lib
+       memcpy_t2.asm.obj                    156     0         0      
+       memset_t2.asm.obj                    122     0         0      
+       copy_decompress_lzss.c.obj           104     0         0      
+       autoinit.c.obj                       68      0         0      
+       boot_cortex_m.c.obj                  52      0         0      
+       memcmp.c.obj                         36      0         0      
+       ll_mul_t2.asm.obj                    24      0         0      
+       strcpy.c.obj                         20      0         0      
+       strlen.c.obj                         20      0         0      
+       copy_decompress_none.c.obj           14      0         0      
+       copy_zero_init.c.obj                 12      0         0      
+       exit.c.obj                           4       0         0      
+       pre_init.c.obj                       4       0         0      
+    +--+------------------------------------+-------+---------+---------+
+       Total:                               636     0         0      
+                                                                     
+    /home/vishal/workspace_v8/My_project/driverlib/ccs/Debug/driverlib.lib
+       sysctl.obj                           616     596       0      
+    +--+------------------------------------+-------+---------+---------+
+       Total:                               616     596       0      
+                                                                     
+       Stack:                               0       0         512    
+       Linker Generated:                    0       68        0      
+    +--+------------------------------------+-------+---------+---------+
+       Grand Total:                         32864   1222      60798  
+
+
+LINKER GENERATED COPY TABLES
+
+__TI_cinit_table @ 00008520 records: 2, size/record: 8, table size: 16
+	.data: load addr=000084e8, load size=00000020 bytes, run addr=2000ed18, run size=0000006c bytes, compression=lzss
+	.bss: load addr=00008518, load size=00000008 bytes, run addr=20000000, run size=0000eb14 bytes, compression=zero_init
+
+
+LINKER GENERATED HANDLER TABLE
+
+__TI_handler_table @ 00008508 records: 3, size/record: 4, table size: 12
+	index: 0, handler: __TI_decompress_lzss
+	index: 1, handler: __TI_decompress_none
+	index: 2, handler: __TI_zero_init
+
+
+GLOBAL SYMBOLS: SORTED ALPHABETICALLY BY Name 
+
+address   name                                   
+-------   ----                                   
+00007777  ASSERT_MSG                             
+00008267  C$$EXIT                                
+00007753  CC3100_disable                         
+0000772f  CC3100_enable                          
+00008257  ResetISR                               
+000062a1  SEGGER_RTT_AllocDownBuffer             
+00006363  SEGGER_RTT_AllocUpBuffer               
+000064c1  SEGGER_RTT_ConfigDownBuffer            
+0000641b  SEGGER_RTT_ConfigUpBuffer              
+000061ef  SEGGER_RTT_GetKey                      
+00006251  SEGGER_RTT_HasData                     
+00006277  SEGGER_RTT_HasDataUp                   
+00006227  SEGGER_RTT_HasKey                      
+000066dd  SEGGER_RTT_Init                        
+00006163  SEGGER_RTT_PutChar                     
+000060e9  SEGGER_RTT_PutCharSkip                 
+0000608d  SEGGER_RTT_PutCharSkipNoLock           
+00005d97  SEGGER_RTT_Read                        
+00005c9d  SEGGER_RTT_ReadNoLock                  
+0000668d  SEGGER_RTT_SetFlagsDownBuffer          
+00006625  SEGGER_RTT_SetFlagsUpBuffer            
+000065c5  SEGGER_RTT_SetNameDownBuffer           
+00006571  SEGGER_RTT_SetNameUpBuffer             
+000066e5  SEGGER_RTT_SetTerminal                 
+0000678d  SEGGER_RTT_TerminalOut                 
+00006215  SEGGER_RTT_WaitKey                     
+00006039  SEGGER_RTT_Write                       
+00005f9d  SEGGER_RTT_WriteNoLock                 
+00005ed1  SEGGER_RTT_WriteSkipNoLock             
+00006073  SEGGER_RTT_WriteString                 
+00005dcd  SEGGER_RTT_WriteWithOverwriteNoLock    
+00008029  SEGGER_SYSVIEW_Conf                    
+00003025  SEGGER_SYSVIEW_DisableEvents           
+00003011  SEGGER_SYSVIEW_EnableEvents            
+00002965  SEGGER_SYSVIEW_EncodeData              
+00002979  SEGGER_SYSVIEW_EncodeId                
+00002951  SEGGER_SYSVIEW_EncodeString            
+0000290b  SEGGER_SYSVIEW_EncodeU32               
+00002f65  SEGGER_SYSVIEW_Error                   
+00002d4b  SEGGER_SYSVIEW_ErrorfHost              
+00002de7  SEGGER_SYSVIEW_ErrorfTarget            
+00001e7d  SEGGER_SYSVIEW_GetSysDesc              
+00000d6b  SEGGER_SYSVIEW_Init                    
+00003039  SEGGER_SYSVIEW_IsStarted               
+00002859  SEGGER_SYSVIEW_NameResource            
+00002487  SEGGER_SYSVIEW_OnIdle                  
+000024b9  SEGGER_SYSVIEW_OnTaskCreate            
+000025ad  SEGGER_SYSVIEW_OnTaskStartExec         
+0000264d  SEGGER_SYSVIEW_OnTaskStartReady        
+00002625  SEGGER_SYSVIEW_OnTaskStopExec          
+000026c5  SEGGER_SYSVIEW_OnTaskStopReady         
+00002535  SEGGER_SYSVIEW_OnTaskTerminate         
+0000277d  SEGGER_SYSVIEW_OnUserStart             
+000027ed  SEGGER_SYSVIEW_OnUserStop              
+00002e0d  SEGGER_SYSVIEW_Print                   
+00002cf9  SEGGER_SYSVIEW_PrintfHost              
+00002ccf  SEGGER_SYSVIEW_PrintfHostEx            
+00002d9b  SEGGER_SYSVIEW_PrintfTarget            
+00002d71  SEGGER_SYSVIEW_PrintfTargetEx          
+0000236f  SEGGER_SYSVIEW_RecordEndCall           
+000023e1  SEGGER_SYSVIEW_RecordEndCallU32        
+000021ff  SEGGER_SYSVIEW_RecordEnterISR          
+000022cb  SEGGER_SYSVIEW_RecordEnterTimer        
+0000227b  SEGGER_SYSVIEW_RecordExitISR           
+000022a3  SEGGER_SYSVIEW_RecordExitISRToScheduler
+00002347  SEGGER_SYSVIEW_RecordExitTimer         
+00002a5d  SEGGER_SYSVIEW_RecordModuleDescription 
+00001c9f  SEGGER_SYSVIEW_RecordString            
+000021cb  SEGGER_SYSVIEW_RecordSystime           
+00000e07  SEGGER_SYSVIEW_RecordU32               
+00001a2d  SEGGER_SYSVIEW_RecordU32x10            
+00000e75  SEGGER_SYSVIEW_RecordU32x2             
+00000f1d  SEGGER_SYSVIEW_RecordU32x3             
+00001031  SEGGER_SYSVIEW_RecordU32x4             
+00001153  SEGGER_SYSVIEW_RecordU32x5             
+000012a5  SEGGER_SYSVIEW_RecordU32x6             
+00001437  SEGGER_SYSVIEW_RecordU32x7             
+000015f9  SEGGER_SYSVIEW_RecordU32x8             
+000017fb  SEGGER_SYSVIEW_RecordU32x9             
+00000ddd  SEGGER_SYSVIEW_RecordVoid              
+000029df  SEGGER_SYSVIEW_RegisterModule          
+00002b3d  SEGGER_SYSVIEW_SendModule              
+00002c31  SEGGER_SYSVIEW_SendModuleDescription   
+00002c5d  SEGGER_SYSVIEW_SendNumModules          
+000028db  SEGGER_SYSVIEW_SendPacket              
+0000218f  SEGGER_SYSVIEW_SendSysDesc             
+00001fb5  SEGGER_SYSVIEW_SendTaskInfo            
+00002175  SEGGER_SYSVIEW_SendTaskList            
+00000dcd  SEGGER_SYSVIEW_SetRAMBase              
+000029cb  SEGGER_SYSVIEW_ShrinkId                
+00001cdd  SEGGER_SYSVIEW_Start                   
+00001e3f  SEGGER_SYSVIEW_Stop                    
+00002eb9  SEGGER_SYSVIEW_Warn                    
+00002d25  SEGGER_SYSVIEW_WarnfHost               
+00002dc1  SEGGER_SYSVIEW_WarnfTarget             
+00006fa1  SYSVIEW_AddTask                        
+000070f1  SYSVIEW_DeleteTask                     
+0000722b  SYSVIEW_SendTaskInfo                   
+00007039  SYSVIEW_UpdateTask                     
+000084d4  SYSVIEW_X_OS_TraceAPI                  
+00007831  SysCtlClockFreqSet                     
+2000e834  _SEGGER_RTT                            
+2000ed18  __STACK_END                            
+00000200  __STACK_SIZE                           
+2000ed18  __STACK_TOP                            
+00008520  __TI_CINIT_Base                        
+00008530  __TI_CINIT_Limit                       
+00008508  __TI_Handler_Table_Base                
+00008514  __TI_Handler_Table_Limit               
+00008141  __TI_auto_init_nobinit_nopinit         
+00008091  __TI_decompress_lzss                   
+0000823d  __TI_decompress_none                   
+ffffffff  __TI_pprof_out_hndl                    
+ffffffff  __TI_prof_data_size                    
+ffffffff  __TI_prof_data_start                   
+00000000  __TI_static_base__                     
+0000824b  __TI_zero_init                         
+000081fd  __aeabi_lmul                           
+00007f9f  __aeabi_memclr                         
+00007f9f  __aeabi_memclr4                        
+00007f9f  __aeabi_memclr8                        
+00007f03  __aeabi_memcpy                         
+00007f03  __aeabi_memcpy4                        
+00007f03  __aeabi_memcpy8                        
+00007fa1  __aeabi_memset                         
+00007fa1  __aeabi_memset4                        
+00007fa1  __aeabi_memset8                        
+ffffffff  __binit__                              
+ffffffff  __c_args__                             
+UNDEFED   __mpu_init                             
+2000eb18  __stack                                
+00008185  _c_int00_noargs                        
+UNDEFED   _system_post_cinit                     
+00008263  _system_pre_init                       
+00008267  abort                                  
+ffffffff  binit                                  
+00003455  eTaskGetState                          
+00000000  g_pfnVectors                           
+00007a31  main                                   
+000081b9  memcmp                                 
+00007f03  memcpy                                 
+00007fa7  memset                                 
+00005987  pcQueueGetName                         
+00003ad3  pcTaskGetName                          
+00006a31  pcTimerGetName                         
+000076ef  prvSetupHardware                       
+0000765d  prvSetupLed                            
+0000768b  prvSetupUart                           
+00007581  prvSetupperipheral                     
+000072c5  pvPortMalloc                           
+000045db  pvTaskIncrementMutexHeldCount          
+00006e83  pvTimerGetTimerID                      
+2000ed18  pxCurrentTCB                           
+00007bb5  pxPortInitialiseStack                  
+00004275  pxTaskGetStackStart                    
+2000eb10  setclockfreq                           
+00008215  strcpy                                 
+00008229  strlen                                 
+000056cd  ucQueueGetQueueType                    
+000084e4  ulMaxSyscallInterruptPriority          
+00007e39  ulPortGetIPSR                          
+000045fd  ulTaskNotifyTake                       
+00007ddf  uxListRemove                           
+000056ad  uxQueueGetQueueNumber                  
+0000563d  uxQueueMessagesWaiting                 
+00005673  uxQueueMessagesWaitingFromISR          
+00005653  uxQueueSpacesAvailable                 
+00003acd  uxTaskGetNumberOfTasks                 
+00003af9  uxTaskGetSystemState                   
+00003feb  uxTaskGetTaskNumber                    
+00003505  uxTaskPriorityGet                      
+0000352d  uxTaskPriorityGetFromISR               
+000045b9  uxTaskResetEventItemValue              
+00006eb7  uxTimerGetTimerNumber                  
+00007cfd  vListInitialise                        
+00007d2d  vListInitialiseItem                    
+00007d79  vListInsert                            
+00007d3d  vListInsertEnd                         
+00007ef5  vPortEnableVFP                         
+00007c55  vPortEndScheduler                      
+00007c57  vPortEnterCritical                     
+00007c77  vPortExitCritical                      
+000073c7  vPortFree                              
+00007425  vPortInitialiseBlocks                  
+00007eb1  vPortSVCHandler                        
+00007cb3  vPortSetupTimerInterrupt               
+00007ed1  vPortStartFirstTask                    
+00005939  vQueueAddToRegistry                    
+00005689  vQueueDelete                           
+000056bb  vQueueSetQueueNumber                   
+000059c7  vQueueUnregisterQueue                  
+00005a0b  vQueueWaitForMessageRestricted         
+00007a99  vTask1_handler                         
+00007ad5  vTask2_handler                         
+0000340b  vTaskDelay                             
+00003375  vTaskDelayUntil                        
+000032b3  vTaskDelete                            
+00003985  vTaskEndScheduler                      
+000040e5  vTaskGetInfo                           
+00003f3b  vTaskInternalSetTimeOutState           
+00003fe3  vTaskMissedYield                       
+0000496f  vTaskNotifyGiveFromISR                 
+00003d9b  vTaskPlaceOnEventList                  
+00003de5  vTaskPlaceOnEventListRestricted        
+00003db7  vTaskPlaceOnUnorderedEventList         
+000044d5  vTaskPriorityDisinheritAfterTimeout    
+00003575  vTaskPrioritySet                       
+00003eb5  vTaskRemoveFromUnorderedEventList      
+000037dd  vTaskResume                            
+0000400b  vTaskSetTaskNumber                     
+00003f1d  vTaskSetTimeOutState                   
+00003915  vTaskStartScheduler                    
+000036b1  vTaskSuspend                           
+000039a1  vTaskSuspendAll                        
+00003d1d  vTaskSwitchContext                     
+000069e5  vTimerSetReloadMode                    
+00006e9d  vTimerSetTimerID                       
+00006ec5  vTimerSetTimerNumber                   
+00007419  xPortGetFreeHeapSize                   
+0000741f  xPortGetMinimumEverFreeHeapSize        
+00007e51  xPortPendSVHandler                     
+00007c1f  xPortStartScheduler                    
+00007c8d  xPortSysTickHandler                    
+00004d69  xQueueCreateCountingSemaphore          
+00004cbd  xQueueCreateMutex                      
+00004bf1  xQueueGenericCreate                    
+00004b51  xQueueGenericReset                     
+00004d89  xQueueGenericSend                      
+00004efd  xQueueGenericSendFromISR               
+00004fb9  xQueueGiveFromISR                      
+00004ce9  xQueueGiveMutexRecursive               
+000058cd  xQueueIsQueueEmptyFromISR              
+00005913  xQueueIsQueueFullFromISR               
+000053a7  xQueuePeek                             
+000055bb  xQueuePeekFromISR                      
+0000506d  xQueueReceive                          
+000054ed  xQueueReceiveFromISR                   
+2000e9e0  xQueueRegistry                         
+000051ed  xQueueSemaphoreTake                    
+00004d25  xQueueTakeMutexRecursive               
+00003f65  xTaskCheckForTimeOut                   
+0000307d  xTaskCreate                            
+00004737  xTaskGenericNotify                     
+00004845  xTaskGenericNotifyFromISR              
+000042e1  xTaskGetCurrentTaskHandle              
+00003bdd  xTaskGetIdleTaskHandle                 
+000042f9  xTaskGetSchedulerState                 
+00003aa9  xTaskGetTickCount                      
+00003ab9  xTaskGetTickCountFromISR               
+2000ed78  xTaskHandle1                           
+2000ed7c  xTaskHandle2                           
+00003bf9  xTaskIncrementTick                     
+00004a31  xTaskNotifyStateClear                  
+00004685  xTaskNotifyWait                        
+00004425  xTaskPriorityDisinherit                
+0000433d  xTaskPriorityInherit                   
+00003e25  xTaskRemoveFromEventList               
+000039b5  xTaskResumeAll                         
+00003871  xTaskResumeFromISR                     
+000068d9  xTimerCreate                           
+000068ad  xTimerCreateTimerTask                  
+00006961  xTimerGenericCommand                   
+00006a1b  xTimerGetExpiryTime                    
+000069d3  xTimerGetPeriod                        
+000069cd  xTimerGetTimerDaemonTaskHandle         
+00006e5b  xTimerIsTimerActive                    
+
+
+GLOBAL SYMBOLS: SORTED BY Symbol Address 
+
+address   name                                   
+-------   ----                                   
+00000000  __TI_static_base__                     
+00000000  g_pfnVectors                           
+00000200  __STACK_SIZE                           
+00000d6b  SEGGER_SYSVIEW_Init                    
+00000dcd  SEGGER_SYSVIEW_SetRAMBase              
+00000ddd  SEGGER_SYSVIEW_RecordVoid              
+00000e07  SEGGER_SYSVIEW_RecordU32               
+00000e75  SEGGER_SYSVIEW_RecordU32x2             
+00000f1d  SEGGER_SYSVIEW_RecordU32x3             
+00001031  SEGGER_SYSVIEW_RecordU32x4             
+00001153  SEGGER_SYSVIEW_RecordU32x5             
+000012a5  SEGGER_SYSVIEW_RecordU32x6             
+00001437  SEGGER_SYSVIEW_RecordU32x7             
+000015f9  SEGGER_SYSVIEW_RecordU32x8             
+000017fb  SEGGER_SYSVIEW_RecordU32x9             
+00001a2d  SEGGER_SYSVIEW_RecordU32x10            
+00001c9f  SEGGER_SYSVIEW_RecordString            
+00001cdd  SEGGER_SYSVIEW_Start                   
+00001e3f  SEGGER_SYSVIEW_Stop                    
+00001e7d  SEGGER_SYSVIEW_GetSysDesc              
+00001fb5  SEGGER_SYSVIEW_SendTaskInfo            
+00002175  SEGGER_SYSVIEW_SendTaskList            
+0000218f  SEGGER_SYSVIEW_SendSysDesc             
+000021cb  SEGGER_SYSVIEW_RecordSystime           
+000021ff  SEGGER_SYSVIEW_RecordEnterISR          
+0000227b  SEGGER_SYSVIEW_RecordExitISR           
+000022a3  SEGGER_SYSVIEW_RecordExitISRToScheduler
+000022cb  SEGGER_SYSVIEW_RecordEnterTimer        
+00002347  SEGGER_SYSVIEW_RecordExitTimer         
+0000236f  SEGGER_SYSVIEW_RecordEndCall           
+000023e1  SEGGER_SYSVIEW_RecordEndCallU32        
+00002487  SEGGER_SYSVIEW_OnIdle                  
+000024b9  SEGGER_SYSVIEW_OnTaskCreate            
+00002535  SEGGER_SYSVIEW_OnTaskTerminate         
+000025ad  SEGGER_SYSVIEW_OnTaskStartExec         
+00002625  SEGGER_SYSVIEW_OnTaskStopExec          
+0000264d  SEGGER_SYSVIEW_OnTaskStartReady        
+000026c5  SEGGER_SYSVIEW_OnTaskStopReady         
+0000277d  SEGGER_SYSVIEW_OnUserStart             
+000027ed  SEGGER_SYSVIEW_OnUserStop              
+00002859  SEGGER_SYSVIEW_NameResource            
+000028db  SEGGER_SYSVIEW_SendPacket              
+0000290b  SEGGER_SYSVIEW_EncodeU32               
+00002951  SEGGER_SYSVIEW_EncodeString            
+00002965  SEGGER_SYSVIEW_EncodeData              
+00002979  SEGGER_SYSVIEW_EncodeId                
+000029cb  SEGGER_SYSVIEW_ShrinkId                
+000029df  SEGGER_SYSVIEW_RegisterModule          
+00002a5d  SEGGER_SYSVIEW_RecordModuleDescription 
+00002b3d  SEGGER_SYSVIEW_SendModule              
+00002c31  SEGGER_SYSVIEW_SendModuleDescription   
+00002c5d  SEGGER_SYSVIEW_SendNumModules          
+00002ccf  SEGGER_SYSVIEW_PrintfHostEx            
+00002cf9  SEGGER_SYSVIEW_PrintfHost              
+00002d25  SEGGER_SYSVIEW_WarnfHost               
+00002d4b  SEGGER_SYSVIEW_ErrorfHost              
+00002d71  SEGGER_SYSVIEW_PrintfTargetEx          
+00002d9b  SEGGER_SYSVIEW_PrintfTarget            
+00002dc1  SEGGER_SYSVIEW_WarnfTarget             
+00002de7  SEGGER_SYSVIEW_ErrorfTarget            
+00002e0d  SEGGER_SYSVIEW_Print                   
+00002eb9  SEGGER_SYSVIEW_Warn                    
+00002f65  SEGGER_SYSVIEW_Error                   
+00003011  SEGGER_SYSVIEW_EnableEvents            
+00003025  SEGGER_SYSVIEW_DisableEvents           
+00003039  SEGGER_SYSVIEW_IsStarted               
+0000307d  xTaskCreate                            
+000032b3  vTaskDelete                            
+00003375  vTaskDelayUntil                        
+0000340b  vTaskDelay                             
+00003455  eTaskGetState                          
+00003505  uxTaskPriorityGet                      
+0000352d  uxTaskPriorityGetFromISR               
+00003575  vTaskPrioritySet                       
+000036b1  vTaskSuspend                           
+000037dd  vTaskResume                            
+00003871  xTaskResumeFromISR                     
+00003915  vTaskStartScheduler                    
+00003985  vTaskEndScheduler                      
+000039a1  vTaskSuspendAll                        
+000039b5  xTaskResumeAll                         
+00003aa9  xTaskGetTickCount                      
+00003ab9  xTaskGetTickCountFromISR               
+00003acd  uxTaskGetNumberOfTasks                 
+00003ad3  pcTaskGetName                          
+00003af9  uxTaskGetSystemState                   
+00003bdd  xTaskGetIdleTaskHandle                 
+00003bf9  xTaskIncrementTick                     
+00003d1d  vTaskSwitchContext                     
+00003d9b  vTaskPlaceOnEventList                  
+00003db7  vTaskPlaceOnUnorderedEventList         
+00003de5  vTaskPlaceOnEventListRestricted        
+00003e25  xTaskRemoveFromEventList               
+00003eb5  vTaskRemoveFromUnorderedEventList      
+00003f1d  vTaskSetTimeOutState                   
+00003f3b  vTaskInternalSetTimeOutState           
+00003f65  xTaskCheckForTimeOut                   
+00003fe3  vTaskMissedYield                       
+00003feb  uxTaskGetTaskNumber                    
+0000400b  vTaskSetTaskNumber                     
+000040e5  vTaskGetInfo                           
+00004275  pxTaskGetStackStart                    
+000042e1  xTaskGetCurrentTaskHandle              
+000042f9  xTaskGetSchedulerState                 
+0000433d  xTaskPriorityInherit                   
+00004425  xTaskPriorityDisinherit                
+000044d5  vTaskPriorityDisinheritAfterTimeout    
+000045b9  uxTaskResetEventItemValue              
+000045db  pvTaskIncrementMutexHeldCount          
+000045fd  ulTaskNotifyTake                       
+00004685  xTaskNotifyWait                        
+00004737  xTaskGenericNotify                     
+00004845  xTaskGenericNotifyFromISR              
+0000496f  vTaskNotifyGiveFromISR                 
+00004a31  xTaskNotifyStateClear                  
+00004b51  xQueueGenericReset                     
+00004bf1  xQueueGenericCreate                    
+00004cbd  xQueueCreateMutex                      
+00004ce9  xQueueGiveMutexRecursive               
+00004d25  xQueueTakeMutexRecursive               
+00004d69  xQueueCreateCountingSemaphore          
+00004d89  xQueueGenericSend                      
+00004efd  xQueueGenericSendFromISR               
+00004fb9  xQueueGiveFromISR                      
+0000506d  xQueueReceive                          
+000051ed  xQueueSemaphoreTake                    
+000053a7  xQueuePeek                             
+000054ed  xQueueReceiveFromISR                   
+000055bb  xQueuePeekFromISR                      
+0000563d  uxQueueMessagesWaiting                 
+00005653  uxQueueSpacesAvailable                 
+00005673  uxQueueMessagesWaitingFromISR          
+00005689  vQueueDelete                           
+000056ad  uxQueueGetQueueNumber                  
+000056bb  vQueueSetQueueNumber                   
+000056cd  ucQueueGetQueueType                    
+000058cd  xQueueIsQueueEmptyFromISR              
+00005913  xQueueIsQueueFullFromISR               
+00005939  vQueueAddToRegistry                    
+00005987  pcQueueGetName                         
+000059c7  vQueueUnregisterQueue                  
+00005a0b  vQueueWaitForMessageRestricted         
+00005c9d  SEGGER_RTT_ReadNoLock                  
+00005d97  SEGGER_RTT_Read                        
+00005dcd  SEGGER_RTT_WriteWithOverwriteNoLock    
+00005ed1  SEGGER_RTT_WriteSkipNoLock             
+00005f9d  SEGGER_RTT_WriteNoLock                 
+00006039  SEGGER_RTT_Write                       
+00006073  SEGGER_RTT_WriteString                 
+0000608d  SEGGER_RTT_PutCharSkipNoLock           
+000060e9  SEGGER_RTT_PutCharSkip                 
+00006163  SEGGER_RTT_PutChar                     
+000061ef  SEGGER_RTT_GetKey                      
+00006215  SEGGER_RTT_WaitKey                     
+00006227  SEGGER_RTT_HasKey                      
+00006251  SEGGER_RTT_HasData                     
+00006277  SEGGER_RTT_HasDataUp                   
+000062a1  SEGGER_RTT_AllocDownBuffer             
+00006363  SEGGER_RTT_AllocUpBuffer               
+0000641b  SEGGER_RTT_ConfigUpBuffer              
+000064c1  SEGGER_RTT_ConfigDownBuffer            
+00006571  SEGGER_RTT_SetNameUpBuffer             
+000065c5  SEGGER_RTT_SetNameDownBuffer           
+00006625  SEGGER_RTT_SetFlagsUpBuffer            
+0000668d  SEGGER_RTT_SetFlagsDownBuffer          
+000066dd  SEGGER_RTT_Init                        
+000066e5  SEGGER_RTT_SetTerminal                 
+0000678d  SEGGER_RTT_TerminalOut                 
+000068ad  xTimerCreateTimerTask                  
+000068d9  xTimerCreate                           
+00006961  xTimerGenericCommand                   
+000069cd  xTimerGetTimerDaemonTaskHandle         
+000069d3  xTimerGetPeriod                        
+000069e5  vTimerSetReloadMode                    
+00006a1b  xTimerGetExpiryTime                    
+00006a31  pcTimerGetName                         
+00006e5b  xTimerIsTimerActive                    
+00006e83  pvTimerGetTimerID                      
+00006e9d  vTimerSetTimerID                       
+00006eb7  uxTimerGetTimerNumber                  
+00006ec5  vTimerSetTimerNumber                   
+00006fa1  SYSVIEW_AddTask                        
+00007039  SYSVIEW_UpdateTask                     
+000070f1  SYSVIEW_DeleteTask                     
+0000722b  SYSVIEW_SendTaskInfo                   
+000072c5  pvPortMalloc                           
+000073c7  vPortFree                              
+00007419  xPortGetFreeHeapSize                   
+0000741f  xPortGetMinimumEverFreeHeapSize        
+00007425  vPortInitialiseBlocks                  
+00007581  prvSetupperipheral                     
+0000765d  prvSetupLed                            
+0000768b  prvSetupUart                           
+000076ef  prvSetupHardware                       
+0000772f  CC3100_enable                          
+00007753  CC3100_disable                         
+00007777  ASSERT_MSG                             
+00007831  SysCtlClockFreqSet                     
+00007a31  main                                   
+00007a99  vTask1_handler                         
+00007ad5  vTask2_handler                         
+00007bb5  pxPortInitialiseStack                  
+00007c1f  xPortStartScheduler                    
+00007c55  vPortEndScheduler                      
+00007c57  vPortEnterCritical                     
+00007c77  vPortExitCritical                      
+00007c8d  xPortSysTickHandler                    
+00007cb3  vPortSetupTimerInterrupt               
+00007cfd  vListInitialise                        
+00007d2d  vListInitialiseItem                    
+00007d3d  vListInsertEnd                         
+00007d79  vListInsert                            
+00007ddf  uxListRemove                           
+00007e39  ulPortGetIPSR                          
+00007e51  xPortPendSVHandler                     
+00007eb1  vPortSVCHandler                        
+00007ed1  vPortStartFirstTask                    
+00007ef5  vPortEnableVFP                         
+00007f03  __aeabi_memcpy                         
+00007f03  __aeabi_memcpy4                        
+00007f03  __aeabi_memcpy8                        
+00007f03  memcpy                                 
+00007f9f  __aeabi_memclr                         
+00007f9f  __aeabi_memclr4                        
+00007f9f  __aeabi_memclr8                        
+00007fa1  __aeabi_memset                         
+00007fa1  __aeabi_memset4                        
+00007fa1  __aeabi_memset8                        
+00007fa7  memset                                 
+00008029  SEGGER_SYSVIEW_Conf                    
+00008091  __TI_decompress_lzss                   
+00008141  __TI_auto_init_nobinit_nopinit         
+00008185  _c_int00_noargs                        
+000081b9  memcmp                                 
+000081fd  __aeabi_lmul                           
+00008215  strcpy                                 
+00008229  strlen                                 
+0000823d  __TI_decompress_none                   
+0000824b  __TI_zero_init                         
+00008257  ResetISR                               
+00008263  _system_pre_init                       
+00008267  C$$EXIT                                
+00008267  abort                                  
+000084d4  SYSVIEW_X_OS_TraceAPI                  
+000084e4  ulMaxSyscallInterruptPriority          
+00008508  __TI_Handler_Table_Base                
+00008514  __TI_Handler_Table_Limit               
+00008520  __TI_CINIT_Base                        
+00008530  __TI_CINIT_Limit                       
+2000e834  _SEGGER_RTT                            
+2000e9e0  xQueueRegistry                         
+2000eb10  setclockfreq                           
+2000eb18  __stack                                
+2000ed18  __STACK_END                            
+2000ed18  __STACK_TOP                            
+2000ed18  pxCurrentTCB                           
+2000ed78  xTaskHandle1                           
+2000ed7c  xTaskHandle2                           
+ffffffff  __TI_pprof_out_hndl                    
+ffffffff  __TI_prof_data_size                    
+ffffffff  __TI_prof_data_start                   
+ffffffff  __binit__                              
+ffffffff  __c_args__                             
+ffffffff  binit                                  
+UNDEFED   __mpu_init                             
+UNDEFED   _system_post_cinit                     
+
+[266 symbols]
